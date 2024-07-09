@@ -54,8 +54,9 @@
 
         .button-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
+            justify-content: center;
         }
 
         .hide {
@@ -93,6 +94,7 @@
     <img id="photoPreview" class="hide" alt="Captured Photo"/>
     <video id="videoPreview" class="hide" controls></video>
     <div class="button-container">
+        <button id="retakeButton">Retake</button>
         <a id="downloadLink" download="media.png">
             <button>Download</button>
         </a>
@@ -103,6 +105,7 @@
     const photoPreview = document.getElementById('photoPreview');
     const videoPreview = document.getElementById('videoPreview');
     const downloadLink = document.getElementById('downloadLink');
+    const retakeButton = document.getElementById('retakeButton');
 
     const capturedMedia = localStorage.getItem('capturedMedia');
     const mediaType = localStorage.getItem('mediaType');
@@ -123,6 +126,10 @@
         alert('No media found');
         window.location.href = 'camera.html';
     }
+
+    retakeButton.onclick = function () {
+        window.location.href = 'camera.html';
+    };
 </script>
 </body>
 </html>
