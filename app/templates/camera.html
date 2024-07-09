@@ -134,10 +134,7 @@
     let currentCamera = 'user'; // 초기 설정은 전면 카메라
 
     function startCamera() {
-        if (location.protocol !== 'https:') {
-            alert('This application requires HTTPS to work.');
-            return;
-        }
+
 
         navigator.mediaDevices.getUserMedia({video: {facingMode: currentCamera}, audio: true})
             .then(function (s) {
@@ -187,6 +184,9 @@
             // Store video data in localStorage
             localStorage.setItem('capturedMedia', url);
             localStorage.setItem('mediaType', 'video');
+
+            // Redirect to camera_convert.html
+            window.location.href = 'camera_convert.html';
         };
         recorder.start();
         recordButton.innerHTML = '<img src="https://img.icons8.com/material-rounded/24/000000/stop.png"/> Stop';
